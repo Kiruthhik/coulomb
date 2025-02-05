@@ -1,26 +1,106 @@
 {% extends 'layout.html' %}
 {% load static %}
 
-{% block title %}Home - Coulomb{% endblock %}
+{% block title %}Events - Coulomb{% endblock %}
 
 {% block content %}
-    <!-- Masthead -->
-    <header class="masthead bg-primary text-white text-center">
-        <div class="container d-flex align-items-center flex-column">
-            <!-- Masthead Avatar Image -->
-            <img class="masthead-avatar mb-5" src="{% static 'assets/img/avataaars.svg' %}" alt="..." />
-            <!-- Masthead Heading -->
-            <h1 class="masthead-heading text-uppercase mb-0">Coulomb</h1>
-            <!-- Icon Divider -->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- Masthead Subheading -->
-            <p class="masthead-subheading font-weight-light mb-0">Get ready to rumble in the world of wires</p>
-            <button class="btn btn-danger btn-lg" onclick="">Register Now!</button>
+<style>
+    /* Event Card Styling */
+    .event-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .event-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        border-color: #007bff;
+    }
+
+    /* Event Info */
+    .event-info {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .event-title {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .event-description {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.5;
+    }
+
+    /* Event Image */
+    .event-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .event-image img {
+        width: 150px; /* Square shape */
+        height: 150px;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<br><br><br>
+<section class="page-section bg-light py-5" id="events">
+    <div class="container">
+        <!-- Section Heading -->
+        <h2 class="text-center text-uppercase text-secondary mb-4">Events</h2>
+        
+        <!-- Icon Divider -->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="divider-custom-line"></div>
         </div>
-    </header>
+
+        <!-- Events List -->
+        <div class="row">
+            {% for event in events %}
+            <div class="col-lg-12 mb-4">
+                <div class="event-card" id="{{ event.id }}">
+                    <!-- Event Info -->
+                    <div class="event-info">
+                        <h3 class="event-title">{{ event.name }}</h3>
+                        <p class="event-description">{{ event.description }}</p>
+                    </div>
+                    
+                    <!-- Event Image -->
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for Clickable Cards -->
+<script>
+    document.querySelectorAll('.event-card').forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.href = `/event_detail/${card.id}`;
+        });
+    });
+</script>
 
 {% endblock %}
