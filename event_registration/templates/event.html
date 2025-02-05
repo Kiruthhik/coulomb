@@ -18,7 +18,7 @@
         </div>
 
         <!-- Event Image -->
-        
+       
 
         <!-- Event Details -->
         <div class="row">
@@ -32,7 +32,7 @@
                         <li>{{ rule.text }}</li>
                     {% endfor %}
                 </ul> -->
-                <p>{{ event.rules_and_regulations }}</p>
+                <p>{{ event.rules_and_regulations|linebreaks }}</p>
             </div>
 
             <!-- Event Info Sidebar -->
@@ -42,7 +42,7 @@
                     <p><strong>Date:</strong> {{ event.date }}</p>
                     <p><strong>Time:</strong> {{ event.time }}</p>
                     <p><strong>Venue:</strong> {{ event.venue }}</p>
-                    <p><strong>Entry Fee:</strong> {{ event.entry_fee }}</p>
+                    <p><strong>Entry Fee:</strong> 150</p>
 
                     <h5 class="text-secondary mt-4">Contact</h5>
                     <p><strong>Organizer:</strong> {{ event.organizer }}</p>

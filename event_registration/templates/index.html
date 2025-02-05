@@ -10,7 +10,7 @@
             <!-- Masthead Avatar Image -->
             <img class="masthead-avatar mb-5" src="{% static 'assets/img/logo2.png' %}" alt="..." />
             <!-- Masthead Heading -->
-            <h1 class="masthead-heading text-uppercase mb-0">Coulomb</h1>
+            <h1 class="masthead-heading text-uppercase mb-0">EEE Dept presents</h1>
             <!-- Icon Divider -->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
@@ -19,7 +19,8 @@
             </div>
             <!-- Masthead Subheading -->
             <p class="masthead-subheading font-weight-light mb-0">Get ready to rumble in the world of wires</p>
-            <button class="btn btn-danger btn-lg" onclick="window.location.href='{% url 'events' %}';">Register Now!</button>
+            <br><button class="btn btn-danger btn-lg" onclick="window.location.href='{% url 'events' %}';">Register Now!</button>
+            <br><a href="{% url 'register' %}" class="link-warning">Already registered?</a>
         </div>
     </header>
 

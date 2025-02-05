@@ -4,6 +4,9 @@ from .models import event
 def home(request):
     return render(request,'index.html')
 
+def register(request):
+    return render(request,'register.html')
+
 def events(request):
     events = event.objects.all()
     context = {'events':events}
